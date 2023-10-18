@@ -1,0 +1,112 @@
+    <!DOCTYPE html>
+    <html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <title>Desafio Nexum</title>
+        <script src="jquery-3.7.0.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="styles.css">
+        <script src="script.js"></script>
+    </head>
+    <body>
+
+    	<form id="formulario">
+    		<h2>Dados pessoais</h2>
+    		<div class="form-columns">
+    			<div class="form-column">
+    				<div class="form-row">
+    					<label for="nome">Nome</label> <input type="text" name="nome"
+                      id="nome" placeholder="Nome completo" required>
+                  </div>
+                  <div class="form-row">
+                   <label for="email">E-mail</label> <input type="email" name="email"
+                   id="email" placeholder="exemplo@dominio.com" required>
+               </div>
+               <div class="form-row">
+                   <label for="tipo">Tipo de Pessoa</label> <select name="tipo"
+                   id="tipo" required>
+                   <option value="fisica">Pessoa física</option>
+                   <option value="juridica">Pessoa jurídica</option>
+               </select>
+           </div>
+           <div class="form-row" id="row-cpf">
+               <label for="cpf">CPF</label> <input type="text" name="cpf" id="cpf"
+               placeholder="000.000.000-00" maxlength="14">
+           </div>
+           <div class="form-row" id="row-cnpj">
+               <label for="cnpj">CNPJ</label> <input type="text" name="cnpj"
+               id="cnpj" placeholder="00.000.000/0000-00" maxlength="18">
+           </div>
+           <div class="form-row">
+               <label for="cep">CEP</label> <input type="text" name="cep" id="cep"
+               placeholder="00000-000" maxlength="9">
+               <button id="btn-buscar" type="button" onclick="buscarEndereco()">Buscar</button>
+           </div>
+       </div>
+       <div class="form-column">
+        <div class="form-row">
+           <label for="endereco">Endereço</label> <input type="text" name="endereco" id="endereco" readonly>
+       </div>
+       <div class="form-row">
+           <label for="complemento">Complemento</label> <input type="text" name="complemento" id="complemento" readonly>
+       </div>
+       <div class="form-row">
+           <label for="bairro">Bairro</label> <input type="text" name="bairro"id="bairro" readonly>
+       </div>
+       <div class="form-row">
+           <label for="cidade">Cidade</label> <input type="text" name="cidade" id="cidade" readonly>
+       </div>
+       <div class="form-row">
+           <label for="estado">Estado</label> <input type="text" name="estado" id="estado" readonly>
+       </div>
+    </div>
+    </div>
+    <div class="form-row">
+     <input type="submit" value="Cadastrar">
+    </div>
+    <p id="success-message" style="display: none; color: green;">Dados
+    enviados com sucesso!</p>
+    </form>
+
+    <div class="content-container">
+      <h2>Cadastro de pessoa</h2>
+      <div id="search-fields" class="search-form">
+        <button id="btn-ordenar">A - Z</button>
+        <input type="text" id="search-nome" class="search-input" placeholder="Pesquisar por Nome"> 
+        <input type="text" id="search-cpf" class="search-input" placeholder="Pesquisar por CPF">
+        <button id="btn-pesquisar" class="search-button">Pesquisar</button>
+        <button id="btn-atualizar">Atualizar</button>
+    </div>
+    <table class="data-table">
+     <thead>
+        <tr>
+           <th>Nome</th>
+           <th>Email</th>
+           <th>CPF</th>
+           <th>Ações</th>
+       </tr>
+    </thead>
+    <tbody id="table-body">
+
+    </tbody>
+    </table>
+    </div>
+
+    <div class="overlay">
+      <div id="edit-popup" class="popup">
+         <h3>Editar Usuário</h3>
+         <form id="edit-form">
+            <label for="edit-nome">Nome</label> 
+            <input type="text"id="edit-nome" required> 
+            <label for="edit-email">Email</label>
+            <input type="email" id="edit-email" required> 
+            <label for="edit-cpf">CPF</label> 
+            <input type="text" id="edit-cpf"maxlength="14" required>
+            <button type="submit" id="save-edit">Salvar Edições</button>
+            <button class="cancel" id="cancel-edit">Cancelar</button>
+        </form>
+
+    </div>
+    </div>
+
+    </body>
+    </html>
